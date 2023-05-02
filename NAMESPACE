@@ -1,0 +1,16 @@
+useDynLib(CaseCohortCoxSurvival, .registration = TRUE)
+import(utils)
+importFrom("stats", "as.formula", "binomial", "gaussian", "glm",
+             "model.matrix", "predict", "qnorm", "residuals", "var")
+importFrom("nnet", "multinom")
+importFrom("survival", "coxph", "coxph.detail", "Surv", "coxph.control")
+export(caseCohortCoxSurvival, calibration, auxiliary.construction,
+  estimation, estimation.CumBH, estimation.PR,
+  influences, influences.CumBH, influences.PR, influences.RH, 
+  influences.missingdata, influences.CumBH.missingdata,
+  influences.PR.missingdata, influences.RH.missingdata,
+  product.covar.weight, robustvariance, 
+  variance, variance.missingdata,
+  estimation.weights.phase3, estimatePureRisk)
+S3method(print,casecohortcoxsurv)
+
