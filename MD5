@@ -1,4 +1,4 @@
-8cf682b839d41c46463a67f86c47ac88 *DESCRIPTION
+86180d9e88967ee9e2bc44cddc17ede6 *DESCRIPTION
 4ffc1403a8e99be8ff9eb8478957d39a *NAMESPACE
 0b446d68ce2ca752bf3c1465ca56c1ef *R/aux_data.R
 a8b84706c37601b1fcabaef2fe45f745 *R/calibration.R
@@ -16,7 +16,7 @@ ce56c21a659a30535a3b3b44e616bf92 *R/source_util.R
 88041c4b9d134df719bcf6800a81a48d *R/variance_missing.R
 7171c17e798a3e7af9a7fb353750db97 *data/dataexample.missingdata.rda
 e840d53f98cee94a04bd532dcf54c32a *data/dataexample.rda
-91aedf70e52c79592da8614624ed74f6 *man/CaseCohortCoxSurvival-package.Rd
+35ff9d22023c79a90c80b724ce1ea9ec *man/CaseCohortCoxSurvival-package.Rd
 b89160fd90e96a522cbbcf1ba0a4a5cb *man/auxiliary.construction.Rd
 e423f093266c2d2910d2b2878dd40d85 *man/calibration.Rd
 199b9be9fa2e431f1390589c29b86264 *man/caseCohortCoxSurvival.Rd

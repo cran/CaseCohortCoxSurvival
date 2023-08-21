@@ -1,6 +1,7 @@
 
 \name{CaseCohortCoxSurvival-package}
 \alias{CaseCohortCoxSurvival}
+\alias{CaseCohortCoxSurvival-package}
 \docType{package}
 \title{
   Case-Cohort Cox Survival Inference
