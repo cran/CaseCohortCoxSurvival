@@ -1,7 +1,7 @@
 Package: CaseCohortCoxSurvival
 Title: Case-Cohort Cox Survival Inference
-Version: 0.0.32
-Date: 2023-08-18
+Version: 0.0.34
+Date: 2024-01-02
 Authors@R: c(person("Lola", "Etievant", role="aut", email="lola.etievant@nih.gov"),
              person(c("Mitchell", "H."), "Gail", role="aut", email="gailm@exchange.nih.gov"),
              person("Bill", "Wheeler", role="cre", email="wheelerb@imsweb.com"))
@@ -13,9 +13,9 @@ Depends: R (>= 3.5.0), survival
 License: GPL-2
 Imports: nnet
 NeedsCompilation: yes
-Packaged: 2023-08-18 20:20:29 UTC; wheelerwi
+Packaged: 2024-01-02 17:41:28 UTC; wheelerwi
 Author: Lola Etievant [aut],
   Mitchell H. Gail [aut],
   Bill Wheeler [cre]
 Repository: CRAN
-Date/Publication: 2023-08-21 13:10:02 UTC
+Date/Publication: 2024-01-08 23:30:10 UTC

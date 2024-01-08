@@ -159,13 +159,25 @@ getObjFromInfl <- function(infl, name) {
   ret
 }
 
+setNames <- function(obj, nms) {
+
+  len.obj <- length(obj)
+  len.nms <- length(nms)
+  if (!len.obj) return(obj)
+  if (len.obj != len.nms) return(obj)
+  if (length(names(obj))) return(obj)
+  names(obj) <- nms
+  obj
+}
+
 setReturnObject <- function(data, obj, infl, var.est, rv.est, var.data, fit) {
 
   ret      <- list()
   dat      <- NULL
   vars     <- c(obj$status, obj$weights, obj$covars.orig, obj[["phase2", exact=TRUE]],
                 obj[["strata", exact=TRUE]], obj[["weights.phase2", exact=TRUE]],
-                obj[["phase3", exact=TRUE]], obj[["strata.phase3", exact=TRUE]])
+                obj[["phase3", exact=TRUE]], obj[["strata.phase3", exact=TRUE]],
+                obj[["weights.phase3", exact=TRUE]])
   tmp      <- vars %in% colnames(data)
   vars     <- vars[tmp]
   if (length(vars)) dat <- data[, vars, drop=FALSE]
@@ -175,39 +187,40 @@ setReturnObject <- function(data, obj, infl, var.est, rv.est, var.data, fit) {
   rm(dat); gc()
 
   beta   <- getObjFromInfl(infl, "beta.hat")
+  bnms   <- names(beta)
   lambda <- getObjFromInfl(infl, "Lambda0.Tau1Tau2.hat")
   ret[["beta"]]   <- beta
   ret[["Lambda0"]] <- lambda
 
   tmp <- var.est[["var", exact=TRUE]]
   if (!is.null(tmp)) {
-    ret[["beta.var"]]   <- tmp$var.beta
+    ret[["beta.var"]]    <- setNames(tmp$var.beta, bnms)
     ret[["Lambda0.var"]] <- tmp$var.lam
   }
   tmp <- var.est[["var.T", exact=TRUE]]
   if (!is.null(tmp)) {
-    ret[["beta.var.estimated"]]   <- tmp$var.beta
+    ret[["beta.var.estimated"]]    <- setNames(tmp$var.beta, bnms)
     ret[["Lambda0.var.estimated"]] <- tmp$var.lam
   }
   tmp <- var.est[["var.F", exact=TRUE]]
   if (!is.null(tmp)) {
-    ret[["beta.var.design"]]   <- tmp$var.beta
+    ret[["beta.var.design"]]    <- setNames(tmp$var.beta, bnms)
     ret[["Lambda0.var.design"]] <- tmp$var.lam
   }
 
   tmp <- rv.est[["infl", exact=TRUE]]
   if (!is.null(tmp)) {
-    ret[["beta.robustvar"]]   <- tmp$infl.beta
+    ret[["beta.robustvar"]]    <- setNames(tmp$infl.beta, bnms)
     ret[["Lambda0.robustvar"]] <- tmp$infl.Lambda0.Tau1Tau2
   }
   tmp <- rv.est[["infl.T", exact=TRUE]]
   if (!is.null(tmp)) {
-    ret[["beta.robustvar.estimated"]]   <- tmp$infl.beta
+    ret[["beta.robustvar.estimated"]]    <- setNames(tmp$infl.beta, bnms)
     ret[["Lambda0.robustvar.estimated"]] <- tmp$infl.Lambda0.Tau1Tau2
   }
   tmp <- rv.est[["infl.F", exact=TRUE]]
   if (!is.null(tmp)) {
-    ret[["beta.robustvar.design"]]   <- tmp$infl.beta
+    ret[["beta.robustvar.design"]]    <- setNames(tmp$infl.beta, bnms)
     ret[["Lambda0.robustvar.design"]] <- tmp$infl.Lambda0.Tau1Tau2
   }
 

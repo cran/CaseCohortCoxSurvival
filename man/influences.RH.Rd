@@ -14,7 +14,7 @@ influences.RH(mod, calibrated = NULL, A = NULL)
 \item{mod}{a cox model object, result of function coxph.}
 \item{calibrated}{are calibrated weights used for the estimation of the
   parameters? If \code{calibrated = TRUE}, the argument below needs to be
-  provided. Default is code{FALSE}.}
+  provided. Default is \code{FALSE}.}
 \item{A}{\eqn{n \times q} matrix with the values of the auxiliary variables used for
   the calibration of the weights in the whole cohort. Needs to be provided if
   \code{calibrated = TRUE}.}

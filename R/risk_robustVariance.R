@@ -41,6 +41,7 @@ getRobustVarForEst <- function(infl) {
     }
     ret[[nm]] <- res 
   }
+
   ret
 }
 

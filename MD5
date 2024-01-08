@@ -1,4 +1,4 @@
-86180d9e88967ee9e2bc44cddc17ede6 *DESCRIPTION
+6578b0f612956a5b1a88d7cc21cc4fcc *DESCRIPTION
 4ffc1403a8e99be8ff9eb8478957d39a *NAMESPACE
 0b446d68ce2ca752bf3c1465ca56c1ef *R/aux_data.R
 a8b84706c37601b1fcabaef2fe45f745 *R/calibration.R
@@ -6,16 +6,16 @@ c88462f05f0242fb1cf893104694d200 *R/help.functions.R
 5a12b0be1d7c952b08d94029bda53f52 *R/influences.R
 a1c1d9ba286a89c638f0d5e950601438 *R/influences.missingdata.R
 55946fbe81d1f788028e0fe3bca453ad *R/predict.R
-98f7f86c1742755030ac0078ac65b429 *R/risk_robustVariance.R
-8edf60a83cf0a159fa37200bcf510e61 *R/source.R
+4a774b977bb5a8d9e021de573e803395 *R/risk_robustVariance.R
+1224ee816ab18047254e55a907c5ac45 *R/source.R
 6b4c3638d21fb26aa0bcdf5f4fb54d40 *R/source_cfunc.R
 886192b9a18b9494709f158eff5138e8 *R/source_check.R
 9336c0c57c4214b95e39b8397055a7fa *R/source_s3.R
 ce56c21a659a30535a3b3b44e616bf92 *R/source_util.R
 30a6c0d2c97530b3e8fb91d6043da813 *R/variance.R
 88041c4b9d134df719bcf6800a81a48d *R/variance_missing.R
-7171c17e798a3e7af9a7fb353750db97 *data/dataexample.missingdata.rda
-e840d53f98cee94a04bd532dcf54c32a *data/dataexample.rda
+9f92370f8b0e73d25983c4f0c64ddb63 *data/dataexample.missingdata.rda
+2eef4d69decec69db3535c7291743fc7 *data/dataexample.rda
 35ff9d22023c79a90c80b724ce1ea9ec *man/CaseCohortCoxSurvival-package.Rd
 b89160fd90e96a522cbbcf1ba0a4a5cb *man/auxiliary.construction.Rd
 e423f093266c2d2910d2b2878dd40d85 *man/calibration.Rd
@@ -31,7 +31,7 @@ c40291003ddbd23e221c48dbb9b5b104 *man/influences.CumBH.Rd
 533f0f908d7ef4c4bd75b09188f99379 *man/influences.CumBH.missingdata.Rd
 b938a72c8f6e19b50dafb4034847b2d6 *man/influences.PR.Rd
 e79c9f7a5771d74e0ce8e84c425f2e13 *man/influences.PR.missingdata.Rd
-373bd6125077c68f8f0f1001a0d1f380 *man/influences.RH.Rd
+47ea7273e8ef07e5d24b0e57090d3325 *man/influences.RH.Rd
 24f465aa42c21c2cb4fc8c4c07783b00 *man/influences.RH.missingdata.Rd
 12cc231279dc38873d08ca9bee9e5964 *man/influences.Rd
 8f98311d25ae2fb72a77c2e2275f278d *man/influences.missingdata.Rd
