@@ -2,12 +2,12 @@
 \alias{estimation.PR}
 \title{estimation.PR}
 \description{
-Estimates the pure risk in the time interval [Tau1, Tau2] and for a covariate 
+Estimates the pure risk in the time interval [Tau1, Tau2] and for a covariate
 profile x, from the log-relative hazard and cumulative baseline hazard values.
 }
 
 \usage{
-  estimation.PR(beta, Lambda0.Tau1Tau2, x = NULL)
+estimation.PR(beta, Lambda0.Tau1Tau2, x = NULL)
 }
 
 \arguments{
@@ -22,18 +22,19 @@ pure risk. Default is (0,...,0).}
 }
 
 \references{
-Etievant, L., Gail, M.H. (2023). Cox model inference for relative hazard and 
-pure risk from stratified weight-calibrated case-cohort data. Submitted.
+Etievant, L., Gail, M. H. (2024). Cox model inference for relative hazard and pure risk from stratified weight-calibrated case-cohort data. Lifetime Data Analysis, 30, 572-599.
 }
 
 \seealso{
-\code{\link{estimation}}, \code{\link{estimation.CumBH}}, \code{\link{influences}}, \code{\link{influences.RH}}, 
-\code{\link{influences.CumBH}}, \code{\link{influences.PR}}, 
+\code{\link{estimation}}, \code{\link{estimation.CumBH}}, \code{\link{influences}}, \code{\link{influences.RH}},
+\code{\link{influences.CumBH}}, \code{\link{influences.PR}},
 \code{\link{influences.missingdata}}, \code{\link{influences.RH.missingdata}}, \code{\link{influences.CumBH.missingdata}},
 and \code{\link{influences.PR.missingdata}}.
 }
 
 \examples{
-estimation.PR(beta = c(-0.2, 0.25, -0.3), Lambda0.Tau1Tau2 = 0.03, 
-              x = c(-1, 1, -0.6))
+\donttest{
+  estimation.PR(beta = c(-0.2, 0.25, -0.3), Lambda0.Tau1Tau2 = 0.03,
+                x = c(-1, 1, -0.6))
+}
 }

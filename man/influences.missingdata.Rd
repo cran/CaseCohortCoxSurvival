@@ -3,47 +3,47 @@
 \title{influences.missingdata}
 
 \description{
-Computes the influences on the log-relative hazard, baseline hazards at each 
-unique event time, cumulative baseline hazard in a given time interval 
-[Tau1, Tau2] and on the pure risk in [Tau1, Tau2] and for a given covariate 
-profile x, when covariate data is missing for certain individuals 
+Computes the influences on the log-relative hazard, baseline hazards at each
+unique event time, cumulative baseline hazard in a given time interval
+[Tau1, Tau2] and on the pure risk in [Tau1, Tau2] and for a given covariate
+profile x, when covariate data is missing for certain individuals
 in the phase-two data.
 }
 
 \usage{
-  influences.missingdata(mod, riskmat.phase2, dNt.phase2 = NULL, 
-status.phase2 = NULL, Tau1 = NULL, Tau2 = NULL, x = NULL, 
+influences.missingdata(mod, riskmat.phase2, dNt.phase2 = NULL,
+status.phase2 = NULL, Tau1 = NULL, Tau2 = NULL, x = NULL,
 estimated.weights = FALSE, B.phase2 = NULL)
 }
 
 \arguments{
 \item{mod}{a cox model object, result of function coxph.}
 
-\item{riskmat.phase2}{at risk matrix for the phase-two data at all of the cases 
+\item{riskmat.phase2}{at risk matrix for the phase-two data at all of the cases
 event times, even those with missing covariate data.}
 
-\item{dNt.phase2}{counting process matrix for failures in the phase-two data. 
-Needs to be provided if \code{status.phase2 = NULL}.} 
+\item{dNt.phase2}{counting process matrix for failures in the phase-two data.
+Needs to be provided if \code{status.phase2 = NULL}.}
 
-\item{status.phase2}{vector indicating the case status in the phase-two data. 
+\item{status.phase2}{vector indicating the case status in the phase-two data.
 Needs to be provided if \code{dNt.phase2 = NULL}.}
 
-\item{Tau1}{left bound of the time interval considered for the cumulative 
+\item{Tau1}{left bound of the time interval considered for the cumulative
 baseline hazard and pure risk. Default is the first event time.}
 
-\item{Tau2}{right bound of the time interval considered for the cumulative 
+\item{Tau2}{right bound of the time interval considered for the cumulative
 baseline hazard and pure risk. Default is the last event time.}
 
 \item{x}{vector of length \eqn{p}, specifying the covariate profile considered for the
 pure risk. Default is (0,...,0).}
 
-\item{estimated.weights}{are the weights for the third phase of sampling (due to 
-missingness) estimated? If \code{estimated.weights = TRUE}, the argument below 
+\item{estimated.weights}{are the weights for the third phase of sampling (due to
+missingness) estimated? If \code{estimated.weights = TRUE}, the argument below
 needs to beprovided. Default is \code{FALSE}.}
 
-\item{B.phase2}{matrix for the phase-two data, with phase-three sampling strata 
-indicators. It should have as many columns as phase-three strata (\eqn{J^{(3)}}), 
-with one 1 per row, to indicate the phase-three stratum position. Needs to be 
+\item{B.phase2}{matrix for the phase-two data, with phase-three sampling strata
+indicators. It should have as many columns as phase-three strata (\eqn{J^{(3)}}),
+with one 1 per row, to indicate the phase-three stratum position. Needs to be
 provided if \code{estimated.weights = TRUE}.}
 }
 
@@ -63,19 +63,19 @@ provided if \code{estimated.weights = TRUE}.}
 
 \code{infl2.lambda0.t}: matrix with the phase-two influences on the baseline hazards estimates at each unique event time.
 
-\code{infl2.Lambda0.Tau1Tau2.hat}: vector with the phase-two influences on the cumulative baseline hazard estimate in [Tau1, Tau2]. 
+\code{infl2.Lambda0.Tau1Tau2.hat}: vector with the phase-two influences on the cumulative baseline hazard estimate in [Tau1, Tau2].
 
 \code{infl2.Pi.x.Tau1Tau2.hat}: vector with the phase-two influences on the pure risk estimate in
-  [Tau1, Tau2] and for covariate profile \code{x}. 
+  [Tau1, Tau2] and for covariate profile \code{x}.
 
 \code{infl3.beta}: matrix with the phase-three influences on the log-relative hazard estimates.
 
 \code{infl3.lambda0.t}: matrix with the phase-three influences on the baseline hazards estimates at each unique event time.
 
-\code{infl3.Lambda0.Tau1Tau2.hat}: vector with the phase-three influences on the cumulative baseline hazard estimate in [Tau1, Tau2]. 
+\code{infl3.Lambda0.Tau1Tau2.hat}: vector with the phase-three influences on the cumulative baseline hazard estimate in [Tau1, Tau2].
 
-\code{infl3.Pi.x.Tau1Tau2.hat}: vector with the phase-three influences on the pure risk estimate in 
-  [Tau1, Tau2] and for covariate profile \code{x}. 
+\code{infl3.Pi.x.Tau1Tau2.hat}: vector with the phase-three influences on the pure risk estimate in
+  [Tau1, Tau2] and for covariate profile \code{x}.
 
 \code{beta.hat}: vector of length \eqn{p} with log-relative hazard estimates.
 
@@ -88,95 +88,129 @@ provided if \code{estimated.weights = TRUE}.}
 
 \details{
 
-\code{influences.missingdata} works for estimation from a case-cohort with design 
-weights and when covariate data was missing for certain individuals in the 
+\code{influences.missingdata} works for estimation from a case-cohort with design
+weights and when covariate data was missing for certain individuals in the
 phase-two data (i.e., case-cohort obtained from three phases of sampling).
 
 If there are no missing covariates in the phase- two sample, use \code{\link{influences}}
 with either design weights or calibrated weights.
 
-When covariate information was missing for certain individuals in the phase-two data 
+When covariate information was missing for certain individuals in the phase-two data
 (i.e., case-cohort obtained from three phases of sampling), use \code{influences.missingdata}.
 
-\code{influences.missingdata} uses the influence formulas provided in Etievant 
-and Gail (2023). More precisely, as in Section 5.4 if 
-\code{estimated.weights = TRUE}, and as in Web Appendix H if 
-\code{estimated.weights = FALSE}.
-} 
+\code{influences.missingdata} uses the influence formulas provided in Etievant
+and Gail (2024).
+}
 
 \references{
-Etievant, L., Gail, M.H. (2023). Cox model inference for relative hazard and 
-pure risk from stratified weight-calibrated case-cohort data. Submitted.
+Etievant, L., Gail, M. H. (2024). Cox model inference for relative hazard and pure risk from stratified weight-calibrated case-cohort data. Lifetime Data Analysis, 30, 572-599.
 }
 
 \seealso{
 \code{\link{estimation}}, \code{\link{estimation.CumBH}}, \code{\link{estimation.PR}},
 \code{\link{influences.RH.missingdata}}, \code{\link{influences.CumBH.missingdata}},
-\code{\link{influences.PR.missingdata}}, \code{\link{influences}}, \code{\link{influences.RH}}, \code{\link{influences.CumBH}}, 
+\code{\link{influences.PR.missingdata}}, \code{\link{influences}}, \code{\link{influences.RH}}, \code{\link{influences.CumBH}},
 \code{\link{influences.PR}}, \code{\link{robustvariance}} and \code{\link{variance}}.
 }
 
-
 \examples{
-data(dataexample.missingdata, package="CaseCohortCoxSurvival")
+\donttest{
+  data(dataexample.missingdata.stratified, package="CaseCohortCoxSurvival")
 
-cohort          <- dataexample.missingdata$cohort # a simulated cohort
-casecohort      <- dataexample.missingdata$casecohort # a simulated stratified case-cohort
-# phase-two data: dataexample.missingdata$casecohort.phase2 
-riskmat.phase2  <- dataexample.missingdata$riskmat.phase2
-dNt.phase2      <- dataexample.missingdata$dNt.phase2
-B.phase2        <- dataexample.missingdata$B.phase2
+  cohort <- dataexample.missingdata.stratified$cohort
+  phase2 <- cohort[which(cohort$phase2 == 1),] # the phase-two sample
+  casecohort <- cohort[which(cohort$phase3 == 1),] # the stratified case-cohort
 
-Tau1    <- 0 # given time interval for the pure risk
-Tau2    <- 8
-x       <- c(-1, 1, -0.6) # given covariate profile for the pure risk
+  B.phase2 <- cbind(1 * (phase2$W3 == 0), 1 * (phase2$W3 == 1))
+  rownames(B.phase2)  <- cohort[cohort$phase2 == 1, "id"]
+  B.phase3 <- cbind(1 * (casecohort$W3 == 0), 1 * (casecohort$W3 == 1))
+  rownames(B.phase3)  <- cohort[cohort$phase3 == 1, "id"]
+  total.B.phase2 <- colSums(B.phase2)
+  J3 <- ncol(B.phase3)
+  n <- nrow(cohort)
 
-# Estimation using the stratified case-cohort with true known design weights 
+  # Quantities needed for estimation of the cumulative baseline hazard when
+  # covariate data is missing
+  mod.cohort <- coxph(Surv(event.time, status) ~ X2, data = cohort,
+                      robust = TRUE) # X2 is available on all cohort members
+  mod.cohort.detail <- coxph.detail(mod.cohort, riskmat = TRUE)
 
-mod <- coxph(Surv(times, status) ~ X1 + X2 + X3, data = casecohort, 
-             weight = weights.true, id = id, robust = TRUE)
+  riskmat.phase2 <- with(cohort, mod.cohort.detail$riskmat[phase2 == 1,])
+  rownames(riskmat.phase2) <- cohort[cohort$phase2 == 1, "id"]
+  observed.times.phase2 <- apply(riskmat.phase2, 1,
+                                 function(v) {which.max(cumsum(v))})
+  dNt.phase2 <- matrix(0, nrow(riskmat.phase2), ncol(riskmat.phase2))
+  dNt.phase2[cbind(1:nrow(riskmat.phase2), observed.times.phase2)] <- 1
+  dNt.phase2 <- sweep(dNt.phase2, 1, phase2$status, "*")
+  colnames(dNt.phase2) <- colnames(riskmat.phase2)
+  rownames(dNt.phase2) <- rownames(riskmat.phase2)
 
-estimation <- influences.missingdata(mod = mod, riskmat.phase2 = riskmat.phase2, 
-                                     dNt.phase2 = dNt.phase2, Tau1 = Tau1, 
+  Tau1 <- 0 # given time interval for the pure risk
+  Tau2 <- 8
+  x <- c(-1, 1, -0.6) # given covariate profile for the pure risk
+
+  # Estimation using the stratified case cohort with true known design weights
+  mod.true <- coxph(Surv(event.time, status) ~ X1 + X2 + X3, data = casecohort,
+                    weight = weight.true, id = id, robust = TRUE)
+
+  est.true <- influences.missingdata(mod = mod.true,
+                                     riskmat.phase2 = riskmat.phase2,
+                                     dNt.phase2 = dNt.phase2, Tau1 = Tau1,
                                      Tau2 = Tau2, x = x)
 
-# print the influences on the log-relative hazard estimates
-# estimation$infl.beta
+  # print the influences on the log-relative hazard estimates
+  # est.true$infl.beta
+  # print the phase-two influences on the log-relative hazard estimates
+  # est.true$infl2.beta
+  # print the phase-three influences on the log-relative hazard estimates
+  # est.true$infl3.beta
 
-# print the influences on the cumulative baseline hazard estimate
-#estimation$infl.Lambda0.Tau1Tau2
+  # print the influences on the cumulative baseline hazard estimate
+  # est.true$infl.Lambda0.Tau1Tau2
+  # print the phase-two influences on the cumulative baseline hazard estimate
+  # est.true$infl2.Lambda0.Tau1Tau2
+  # print the phase-three influences on the cumulative baseline hazard estimate
+  # est.true$infl3.Lambda0.Tau1Tau2
 
-# print the influences on the pure risk estimate
-#estimation$infl.Pi.x.Tau1Tau2
+  # print the influences on the pure risk estimate
+  # est.true$infl.Pi.x.Tau1Tau2
+  # print the phase-two influences on the pure risk estimate
+  # est.true$infl2.Pi.x.Tau1Tau2
+  # print the phase-three influences on the pure risk estimate
+  # est.true$infl3.Pi.x.Tau1Tau2
 
-# print the phase-two influences on the log-relative hazard estimates
-#estimation$infl2.beta
+  # Estimation using the stratified case cohort with estimated weights, and
+  # accounting for the estimation through the influences
+  mod.estimated <- coxph(Surv(event.time, status) ~ X1 + X2 + X3,
+                         data = casecohort, weight = weight.est, id = id,
+                         robust = TRUE)
 
-# print the phase-two influences on the cumulative baseline hazard estimate
-#estimation$infl2.Lambda0.Tau1Tau2
+  est.estimated  <- influences.missingdata(mod.estimated,
+                                           riskmat.phase2 = riskmat.phase2,
+                                           dNt.phase2 = dNt.phase2,
+                                           estimated.weights = TRUE,
+                                           B.phase2 = B.phase2, Tau1 = Tau1,
+                                           Tau2 = Tau2, x = x)
 
-# print the phase-two influences on the pure risk estimate
-#estimation$infl2.Pi.x.Tau1Tau2
+  # print the influences on the log-relative hazard estimates
+  # est.estimated$infl.beta
+  # print the phase-two influences on the log-relative hazard estimates
+  # est.estimated$infl2.beta
+  # print the phase-three influences on the log-relative hazard estimates
+  # est.estimated$infl3.beta
 
-# print the phase-three influences on the log-relative hazard estimates
-#estimation$infl3.beta
+  # print the influences on the cumulative baseline hazard estimate
+  # est.estimated$infl.Lambda0.Tau1Tau2
+  # print the phase-two influences on the cumulative baseline hazard estimate
+  # est.estimated$infl2.Lambda0.Tau1Tau2
+  # print the phase-three influences on the cumulative baseline hazard estimate
+  # est.estimated$infl3.Lambda0.Tau1Tau2
 
-# print the phase-three influences on the cumulative baseline hazard estimate
-#estimation$infl3.Lambda0.Tau1Tau2
-
-# print the phase-three influences on the pure risk estimate
-#estimation$infl3.Pi.x.Tau1Tau2
-
-# Estimation using the stratified case-cohort with estimated weights, and
-# accounting for the estimation through the influences
-
-mod.est <- coxph(Surv(times, status) ~ X1 + X2 + X3, data = casecohort, 
-                 weight = weights.est, id = id, robust = TRUE)
-
-estimation.est  <- influences.missingdata(mod.est, 
-                                          riskmat.phase2 = riskmat.phase2, 
-                                          dNt.phase2 = dNt.phase2, 
-                                          estimated.weights = TRUE,
-                                          B.phase2 = B.phase2, Tau1 = Tau1, 
-                                          Tau2 = Tau2, x = x)
+  # print the influences on the pure risk estimate
+  # est.estimated$infl.Pi.x.Tau1Tau2
+  # print the phase-two influences on the pure risk estimate
+  # est.estimated$infl2.Pi.x.Tau1Tau2
+  # print the phase-three influences on the pure risk estimate
+  # est.estimated$infl3.Pi.x.Tau1Tau2
+}
 }

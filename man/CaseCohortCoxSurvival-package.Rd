@@ -7,17 +7,17 @@
   Case-Cohort Cox Survival Inference
 }
 \description{
-This package uses case-cohort data to estimate log-relative hazard, 
-baseline hazards at each unique event time, 
+This package uses case-cohort data to estimate log-relative hazard,
+baseline hazards at each unique event time,
 cumulative baseline hazard in a given time interval and pure risk on the time interval and for a given
-covariate profile, under the Cox model. For the corresponding variance estimation, 
+covariate profile, under the Cox model. For the corresponding variance estimation,
 it relies on influence functions and follows the
-complete variance decomposition, to enable correct analysis of case-cohort data 
+complete variance decomposition, to enable correct analysis of case-cohort data
 with and without stratification,
 weight calibration or missing phase-two covariate data.
 }
 \details{
-  The package provides functions implementing the methods described in Etievant and Gail (2023). More
+  The package provides functions implementing the methods described in Etievant and Gail (2024). More
   precisely, it includes
   \itemize{
     \item a main driver function, \code{\link{caseCohortCoxSurvival}}.
@@ -49,7 +49,8 @@ weight calibration or missing phase-two covariate data.
 \author{Lola Etievant, Mitchell H. Gail}
 \keyword{package}
 \references{
-Etievant, L., Gail, M.H. (2023). Cox model inference for relative hazard and 
-pure risk from stratified weight-calibrated case-cohort data. Submitted.
+Etievant, L., Gail, M. H. (2024). Cox model inference for relative hazard and pure risk from stratified weight-calibrated case-cohort data. Lifetime Data Analysis, 30, 572-599.
+
+Etievant, L., Gail, M. H. (2024). Software Application Profile: CaseCohortCoxSurvival: an R package for case-cohort inference for relative hazard and pure risk under the Cox model. Submitted.
 }
 
